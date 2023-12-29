@@ -1,42 +1,176 @@
+
+
+p {
+  color: white;
+  font-family: "Rubik", sans-serif;
+  margin: 0rem;
+  text-transform: uppercase;
+  user-select: none;
+}
+
+.line {
+  display: flex;
+  justify-content: space-between;
+}
+
 #root {
   max-width: 1280px;
   margin: 0 auto;
-  padding: 2rem;
+  padding: 1rem;
   text-align: center;
+  --green: rgb(42, 252, 152);
+  --blue: rgb(41, 198, 255);
 }
 
-.logo {
-  height: 6em;
-  padding: 1.5em;
-  will-change: filter;
-  transition: filter 300ms;
-}
-.logo:hover {
-  filter: drop-shadow(0 0 2em #646cffaa);
-}
-.logo.react:hover {
-  filter: drop-shadow(0 0 2em #61dafbaa);
+@keyframes float {
+  from, to {
+    transform: translateY(-0%);
+  }
+  
+  50% {    
+    transform: translateY(-3%);
+  }
 }
 
-@keyframes logo-spin {
+@keyframes background-pan {
   from {
-    transform: rotate(0deg);
+    background-position: 1000% center;
   }
+  
   to {
-    transform: rotate(360deg);
+    background-position: 0% center;
   }
 }
 
-@media (prefers-reduced-motion: no-preference) {
-  a:nth-of-type(2) .logo {
-    animation: logo-spin infinite 20s linear;
-  }
+body {
+  height: 100vh;
+  background-color: black;
+  margin: 0rem;
+  overflow: hidden;
+  display: grid;
+  place-items: center;
 }
 
-.card {
-  padding: 2em;
+.line {
+  display: flex;
+  justify-content: space-between;
 }
 
-.read-the-docs {
-  color: #888;
+.word {
+  color: white;
+  font-size: 4vw;
+  font-family: "Rubik", sans-serif;
+  margin: 0rem;
+  text-transform: uppercase;
+  transition: opacity 250ms ease;
+}
+
+a {
+  text-decoration: none;
+  user-select: none;
+}
+
+#text:has(.fancy:hover) .word:not(.fancy:hover) {
+  opacity: 0.2;
+}
+
+.fancy {
+  cursor: pointer;
+}
+
+.fancy span {
+  display: inline-block;
+}
+
+.fancy > .outer {
+  transition: transform 350ms ease;
+}
+
+.fancy:hover > .outer {
+  transition-duration: 800ms;
+}
+
+.fancy:hover > .outer > .inner {
+  animation: float 4s ease infinite;
+}
+
+.fancy:hover > .outer > .inner > .letter {
+  background: linear-gradient(
+    to right,
+    var(--blue),
+    var(--green),
+    var(--blue)
+  );
+  background-size: 1000%;
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  animation: background-pan 150s linear infinite;
+}
+
+.fancy:hover > .outer:nth-child(1) {
+  transform: translate(-80%, 60%) rotate(8deg);
+}
+
+.fancy:hover > .outer:nth-child(2) {
+  transform: translate(-40%, 20%) rotate(4deg);
+}
+
+.fancy:hover > .outer:nth-child(3) {
+  transform: translate(-10%, 60%) rotate(-6deg);
+}
+
+.fancy:hover > .outer:nth-child(4) {
+  transform: translate(0%, 8%) rotate(-8deg);
+}
+
+.fancy:hover > .outer:nth-child(5) {
+  transform: translate(0%, -20%) rotate(5deg);
+}
+
+.fancy:hover > .outer:nth-child(6) {
+  transform: translate(0%, 20%) rotate(-3deg);
+}
+
+.fancy:hover > .outer:nth-child(7) {
+  transform: translate(0%, -40%) rotate(-5deg);
+}
+
+.fancy:hover > .outer:nth-child(8) {
+  transform: translate(0%, 15%) rotate(10deg);
+}
+
+.fancy:hover > .outer:nth-child(9) {
+  transform: translate(0%, -50%) rotate(8deg);
+}
+
+.fancy:hover > .outer:nth-child(10) {
+  transform: translate(0%, 15%) rotate(-6deg);
+}
+
+.fancy:hover > .outer:nth-child(11) {
+  transform: translate(20%, -10%) rotate(-3deg);
+}
+
+.fancy:hover > .outer:nth-child(12) {
+  transform: translate(50%, 30%) rotate(-30deg);
+}
+
+.fancy:hover > .outer:nth-child(13) {
+  transform: translate(50%, -30%) rotate(-3deg);
+}
+
+.fancy:hover > .outer:nth-child(14) {
+  transform: translate(50%, 10%) rotate(15deg);
+}
+
+.fancy:hover > .outer:nth-child(15) {
+  transform: translate(130%, 20%) rotate(-10deg);
+}
+
+.fancy:hover > .outer:nth-child(16) {
+  transform: translate(90%, -15%) rotate(15deg);
+}
+
+.fancy:hover > .outer:nth-child(17) {
+  transform: translate(120%, 20%) rotate(360deg);
 }

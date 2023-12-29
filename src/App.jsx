@@ -1,34 +1,85 @@
-import { useState } from 'react'
-import reactLogo from './assets/react.svg'
-import viteLogo from '/vite.svg'
+import { useEffect } from 'react';
 import './App.css'
 
 function App() {
-  const [count, setCount] = useState(0)
+
+  const rand = (min, max) => Math.floor(Math.random() * (max - min + 1)) + min;
+
+  const enhance = id => {
+    const element = document.getElementById(id)
+    const text = element.innerText.split("");
+
+    element.innerText = "";
+
+    text.forEach((value, index) => {
+      const outer = document.createElement("span");
+
+      outer.className = "outer";
+
+      const inner = document.createElement("span");
+
+      inner.className = "inner";
+
+      inner.style.animationDelay = `${rand(-5000, 0)}ms`;
+
+      const letter = document.createElement("span");
+
+      letter.className = "letter";
+
+      letter.innerText = value;
+
+      letter.style.animationDelay = `${index * 1000}ms`;
+
+      inner.appendChild(letter);
+
+      outer.appendChild(inner);
+
+      element.appendChild(outer);
+    });
+  }
+
+  useEffect(() => {
+    enhance("tg-link");
+    enhance("phone");
+  }, [])
 
   return (
-    <>
-      <div>
-        <a href="https://vitejs.dev" target="_blank">
-          <img src={viteLogo} className="logo" alt="Vite logo" />
-        </a>
-        <a href="https://react.dev" target="_blank">
-          <img src={reactLogo} className="logo react" alt="React logo" />
+    <div id='text'>
+      <div className='line'>
+        <p className='word'>Валерий</p>
+      </div>
+      <div className='line'>
+        <div></div>
+        <p className='word'>Юдинцев</p>
+      </div>
+      <div className='line'>
+        <p className='word'>Frontend</p>
+      </div>
+      <div className='line'>
+        <p className='word'></p>
+        <p className='word'>Developer</p>
+      </div>
+      <div className='line'>
+        <a
+          id='phone'
+          href="mailto:yuvalerka@mail.ru"
+          className='word fancy'
+        >
+          yuvalerka@mail.ru
         </a>
       </div>
-      <h1>Vite + React</h1>
-      <div className="card">
-        <button onClick={() => setCount((count) => count + 1)}>
-          count is {count}
-        </button>
-        <p>
-          Edit <code>src/App.jsx</code> and save to test HMR
-        </p>
+      <div className='line'>
+        <p className='word'>tg</p>
+        <a
+          id="tg-link"
+          href="https://t.me/mabup4"
+          target="_blank"
+          className="word fancy"
+        >
+          @mabup4
+        </a>
       </div>
-      <p className="read-the-docs">
-        Click on the Vite and React logos to learn more
-      </p>
-    </>
+    </div>
   )
 }
 
