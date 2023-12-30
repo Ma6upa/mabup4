@@ -9,8 +9,14 @@ p {
 }
 
 .line {
+  z-index: 10;
   display: flex;
   justify-content: space-between;
+}
+
+#text {
+  position: relative;
+  z-index: 10
 }
 
 #root {
@@ -173,4 +179,13 @@ a {
 
 .fancy:hover > .outer:nth-child(17) {
   transform: translate(120%, 20%) rotate(360deg);
+}
+
+.animation {
+  z-index: 0 !important;
+  position: absolute;
+  width: 60vw;
+  height: 60vw;
+  top: -20%;
+  left: 20%;
 }

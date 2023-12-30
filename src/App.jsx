@@ -1,5 +1,6 @@
 import { useEffect } from 'react';
 import './App.css'
+import Spline from '@splinetool/react-spline';
 
 function App() {
 
@@ -44,42 +45,48 @@ function App() {
   }, [])
 
   return (
-    <div id='text'>
-      <div className='line'>
-        <p className='word'>Валерий</p>
+    <>
+      <div className='animation'>
+        <Spline scene="https://prod.spline.design/XaqSB2Lbkudiuq07/scene.splinecode" />
       </div>
-      <div className='line'>
-        <div></div>
-        <p className='word'>Юдинцев</p>
+
+      <div id='text'>
+        <div className='line'>
+          <p className='word'>Валерий</p>
+        </div>
+        <div className='line'>
+          <div></div>
+          <p className='word'>Юдинцев</p>
+        </div>
+        <div className='line'>
+          <p className='word'>Frontend</p>
+        </div>
+        <div className='line'>
+          <p className='word'></p>
+          <p className='word'>Developer</p>
+        </div>
+        <div className='line'>
+          <a
+            id='phone'
+            href="mailto:yuvalerka@mail.ru"
+            className='word fancy'
+          >
+            yuvalerka@mail.ru
+          </a>
+        </div>
+        <div className='line'>
+          <p className='word'>tg</p>
+          <a
+            id="tg-link"
+            href="https://t.me/mabup4"
+            target="_blank"
+            className="word fancy"
+          >
+            @mabup4
+          </a>
+        </div>
       </div>
-      <div className='line'>
-        <p className='word'>Frontend</p>
-      </div>
-      <div className='line'>
-        <p className='word'></p>
-        <p className='word'>Developer</p>
-      </div>
-      <div className='line'>
-        <a
-          id='phone'
-          href="mailto:yuvalerka@mail.ru"
-          className='word fancy'
-        >
-          yuvalerka@mail.ru
-        </a>
-      </div>
-      <div className='line'>
-        <p className='word'>tg</p>
-        <a
-          id="tg-link"
-          href="https://t.me/mabup4"
-          target="_blank"
-          className="word fancy"
-        >
-          @mabup4
-        </a>
-      </div>
-    </div>
+    </>
   )
 }
 
