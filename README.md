@@ -1,7 +1,5 @@
 # Yudintsev Valeriy
 
-This App is a simple portfolio page created to share my contacts and work experience
-
-Secondary this App is for practicing using flashy css and modern design
+This App is a simple landing page to try out some css animations and spline 3D
 
 - [telegram](https://t.me/mabup4)
